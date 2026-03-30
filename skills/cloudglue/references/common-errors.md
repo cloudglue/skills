@@ -114,6 +114,37 @@ const client = new Cloudglue({
 });
 ```
 
+## File Limits & Unsupported Formats
+
+CloudGlue has the following file requirements:
+- **Max file size:** 2 GB (250 MB for local uploads via API; use a data connector like S3 for larger files)
+- **Max duration:** 2 hours (min 2 seconds)
+- **Supported video formats:** MP4, QuickTime, AVI, WebM
+- **Supported audio formats:** MP3, M4A/AAC, WAV, FLAC, OGG, WebM
+
+### File too large or too long
+
+Split videos longer than 2 hours into parts:
+```bash
+ffmpeg -i long_video.mp4 -map 0:v:0 -map 0:a:0? -dn -c copy -f segment \
+       -segment_time 01:30:00 -reset_timestamps 1 \
+       part_%03d.mp4
+```
+
+### Optimize video for upload
+
+Transcode to an optimal format (H.264, ≤1920px, AAC audio):
+```bash
+ffmpeg -i input_video.ext \
+       -c:v libx264 \
+       -vf "scale=w=min(iw\,1920):h=-2" \
+       -c:a aac -b:a 192k -ac 2 \
+       -movflags +faststart \
+       output.mp4
+```
+
+For full details, see [File Limits & Requirements](https://docs.cloudglue.dev/core-concepts/files#file-limits-%26-requirements).
+
 ## YouTube Limitations
 
 YouTube URLs only support speech/summary processing due to copyright restrictions. Visual modalities (`enable_visual_scene_description`, `enable_scene_text`, `enable_audio_description`) are not available for YouTube content. To take advantage of fully multimodal understanding, download and upload the video directly instead.
