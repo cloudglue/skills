@@ -5,13 +5,18 @@ license: Apache-2.0
 metadata:
   author: cloudglue
   version: "1.0"
+  repository: https://github.com/cloudglue/skills
 ---
 
-# CloudGlue SDK
+# CloudGlue SDK Guide
 
-CloudGlue is a video context layer for AI applications. It provides unified APIs to upload video/audio, generate multimodal descriptions, extract structured data, and query video content through chat, semantic search, and agentic retrieval.
+Build AI-powered video applications with CloudGlue. This skill teaches you how to find current documentation, verify API signatures, and use the CloudGlue JS SDK to upload, describe, extract, search, and chat over video content.
 
-The JavaScript SDK (`@cloudglue/cloudglue-js`) is the primary way to interact with CloudGlue from Node.js / TypeScript applications.
+## Critical: Do not trust internal knowledge
+
+Everything you know about CloudGlue is likely outdated or wrong. Never rely on memory. Always verify against current documentation.
+
+Your training data may contain obsolete APIs, deprecated patterns, and incorrect usage. CloudGlue evolves rapidly — APIs change between versions, method signatures shift, and patterns get refactored. Always check the embedded docs or source code for the installed SDK version before writing any code.
 
 ## Finding Documentation
 
