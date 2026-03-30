@@ -10,20 +10,10 @@ Official [agent skills](https://agentskills.io) for coding agents working with t
 
 ## Installation
 
-### NPM (recommended)
+### Skills CLI (recommended)
 
 ```bash
-npm install @cloudglue/agent-skills
-```
-
-Skills will be available at `node_modules/@cloudglue/agent-skills/skills/`.
-
-### RFC 8615 Well-Known URI
-
-Agents that support automatic skill discovery can find skills at:
-
-```
-https://cloudglue.dev/.well-known/skills.json
+npx skills add cloudglue/skills
 ```
 
 ### Direct Clone
