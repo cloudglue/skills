@@ -6,8 +6,8 @@ Collections group videos for batch processing and querying. The collection type 
 
 | Type | Data Generated | Chat | Search | Responses | Deep Search |
 |------|---------------|------|--------|-----------|-------------|
-| `media-descriptions` | Speech + visual + scene text + audio descriptions | Yes | Yes | Yes | Yes |
-| `rich-transcripts` | Speech transcription with visual context | Yes | Yes | Yes | Yes |
+| `media-descriptions` | Speech + visual + scene text + audio descriptions (recommended) | Yes | Yes | Yes | Yes |
+| `rich-transcripts` | Speech transcription with visual context **(deprecated)** | Yes | Yes | Yes | Yes |
 | `entities` | Structured data via extraction prompts/schemas | No | No | Yes (entity-backed) | No |
 | `face-analysis` | Face detection data per video | No | No | No | No |
 
@@ -40,11 +40,13 @@ const descriptions = await client.collections.getMediaDescriptions(collectionId,
 });
 ```
 
-## rich-transcripts
+## rich-transcripts (deprecated)
+
+> **Deprecated:** Use `media-descriptions` instead. It provides full multimodal output including speech transcription, and supports all query APIs.
 
 Focused on speech transcription with some visual context. Lighter processing than media-descriptions.
 
-**Best for:** Meeting transcripts, podcasts, interviews — content where speech is primary.
+**Best for:** Legacy use only. For new collections, use `media-descriptions`.
 
 ```typescript
 const collection = await client.collections.createCollection({
@@ -68,13 +70,22 @@ Generates structured extracted data using prompts and schemas. Does NOT support 
 
 **Best for:** Structured data extraction (product catalogs, action items, CRM data from calls).
 
+Example entity schema (for meeting analysis):
+```json
+{
+  "meeting_summary": "a paragraph describing summary",
+  "action_items": ["list of action items"],
+  "participants": [{"email": "participant email", "name": "full name"}]
+}
+```
+
 ```typescript
 const collection = await client.collections.createCollection({
-  name: 'Product Mentions',
+  name: 'Meeting Insights',
   collection_type: 'entities',
   // extract_config: {
-  //   prompt: 'Extract product names, prices, and features',
-  //   schema: { ... },
+  //   prompt: 'Extract meeting summary, action items, and participants',
+  //   schema: { ... },  // use the JSON schema above
   // },
 });
 ```
@@ -125,11 +136,9 @@ const faces = await client.collections.getFaceDetections(collectionId, fileId);
 
 ## How to Choose
 
-```
+```text
 Do you need to search or chat over videos?
-├── Yes → Do you need visual descriptions + OCR?
-│   ├── Yes → media-descriptions
-│   └── No (speech is enough) → rich-transcripts
+├── Yes → media-descriptions (recommended default)
 └── No → Do you need structured data extraction?
     ├── Yes → entities (+ Responses API with nimbus-002-preview)
     └── No → Do you need face detection?

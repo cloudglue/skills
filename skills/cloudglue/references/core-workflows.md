@@ -179,7 +179,39 @@ const ready = await client.files.waitForReady(uploaded.data.id);
 console.log('File ready:', ready.id, ready.status);
 ```
 
-## 7. Entity-Backed Knowledge (nimbus-002-preview)
+## 7. Q&A Over Specific Files (Responses API)
+
+Query specific files directly without creating a collection, using nimbus-002-preview.
+
+```typescript
+// Use file IDs returned from upload or list operations
+const response = await client.responses.createResponse({
+  model: 'nimbus-002-preview',
+  input: 'Summarize the key decisions made in this meeting.',
+  knowledge_base: {
+    source: 'files',
+    files: ['file_id_1', 'file_id_2'],
+  },
+  instructions: 'Be concise and list action items.',
+  include: ['cloudglue_citations.media_descriptions'],
+});
+```
+
+## 8. Q&A Over Default Index (Responses API)
+
+Query all files that have `use_in_default_index: true` set in their describe jobs.
+
+```typescript
+const response = await client.responses.createResponse({
+  model: 'nimbus-002-preview',
+  input: 'What topics were discussed across all my indexed videos?',
+  knowledge_base: {
+    source: 'default',
+  },
+});
+```
+
+## 9. Entity-Backed Knowledge (nimbus-002-preview)
 
 Use extracted entities as structured knowledge for advanced reasoning.
 
@@ -203,5 +235,39 @@ const response = await client.responses.createResponse({
       ],
     },
   },
+});
+```
+
+## File URIs and URLs
+
+CloudGlue accepts several types of video references:
+
+- **HTTP URLs** — accepted by most API endpoints that operate on a video: `https://example.com/video.mp4`
+- **CloudGlue URIs** — assigned to uploaded files: `cloudglue://files/<file_id>`. You'll see these in API responses.
+- **Data connector URIs** — provider-specific schemas for connected sources:
+  - S3: `s3://<bucket>/<key>`
+  - Google Drive: `googledrive://<file_id>`
+  - Dropbox: `dropbox://<path>`
+  - Zoom: `zoom://<meeting_id>`
+  - YouTube: `youtube://<video_id>`
+  - GCS: `gs://<bucket>/<key>`
+
+Most APIs return `file_id` and `uri` in their responses — use those values directly when referencing files in subsequent calls. For example:
+
+```typescript
+// Upload returns file_id
+const uploaded = await client.files.uploadFile({ file: myFile });
+const fileId = uploaded.data.id;
+
+// Use file_id with Responses API
+const response = await client.responses.createResponse({
+  model: 'nimbus-002-preview',
+  input: 'What is this video about?',
+  knowledge_base: { source: 'files', files: [fileId] },
+});
+
+// Or use a data connector URI directly with describe
+const job = await client.describe.createDescribe('s3://my-bucket/recordings/call.mp4', {
+  enable_speech: true,
 });
 ```

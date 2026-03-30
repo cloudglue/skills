@@ -83,8 +83,8 @@ Group videos for querying. Each collection has a type that determines what data 
 
 | Type | What it produces | Supports |
 |------|-----------------|----------|
-| `media-descriptions` | Full multimodal descriptions | Chat, Search, Responses, Deep Search |
-| `rich-transcripts` | Speech with visual context | Chat, Search, Deep Search |
+| `media-descriptions` | Full multimodal descriptions (recommended) | Chat, Search, Responses, Deep Search |
+| `rich-transcripts` | Speech with visual context **(deprecated)** | Chat, Search, Deep Search |
 | `entities` | Structured extracted data | Responses API (entity-backed, nimbus-002-preview) |
 | `face-analysis` | Face detection data | Face queries |
 
@@ -160,6 +160,7 @@ filter: {
 ## Common Gotchas
 
 - **`transcribe` is deprecated** — use `describe` for all transcription/description needs
+- **`rich-transcripts` collection type is deprecated** — use `media-descriptions` (the default) instead; it provides full multimodal output including speech
 - **Chat requires collections** — videos must be added to a collection before querying with chat/search
 - **`nimbus-002-preview` for entity-backed** — entity-backed knowledge in Responses API requires this model
 - **File uploads use FormData** — the SDK handles this internally via axios, not Zodios

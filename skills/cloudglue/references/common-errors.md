@@ -114,8 +114,13 @@ const client = new Cloudglue({
 });
 ```
 
+## YouTube Limitations
+
+YouTube URLs only support speech/summary processing due to copyright restrictions. Visual modalities (`enable_visual_scene_description`, `enable_scene_text`, `enable_audio_description`) are not available for YouTube content. To take advantage of fully multimodal understanding, download and upload the video directly instead.
+
 ## Deprecation Warnings
 
 - `client.transcribe` → Use `client.describe` instead
 - `client.collections.addVideo()` → Use `client.collections.addMedia()`
 - `client.collections.addVideoByUrl()` → Use `client.collections.addMediaByUrl()`
+- `rich-transcripts` collection type → Use `media-descriptions` instead
