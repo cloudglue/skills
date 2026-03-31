@@ -33,7 +33,7 @@ export CLOUDGLUE_API_KEY=cg-...
 
 ### 401 Unauthorized
 **Cause:** API key is invalid, expired, or malformed.
-**Fix:** CloudGlue API keys start with `cg-`. Verify your key in the CloudGlue dashboard.
+**Fix:** Cloudglue API keys start with `cg-`. Verify your key in the Cloudglue dashboard.
 
 ## Rate Limiting
 
@@ -116,7 +116,7 @@ const client = new Cloudglue({
 
 ## File Limits & Unsupported Formats
 
-CloudGlue has the following file requirements:
+Cloudglue has the following file requirements:
 - **Max file size:** 2 GB (250 MB for local uploads via API; use a data connector like S3 for larger files)
 - **Max duration:** 2 hours (min 2 seconds)
 - **Supported video formats:** MP4, QuickTime, AVI, WebM

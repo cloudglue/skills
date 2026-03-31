@@ -1,6 +1,6 @@
 # Core Workflows
 
-End-to-end code patterns for common CloudGlue tasks.
+End-to-end code patterns for common Cloudglue tasks.
 
 ## 1. Upload and Describe a Video
 
@@ -240,10 +240,10 @@ const response = await client.responses.createResponse({
 
 ## File URIs and URLs
 
-CloudGlue accepts several types of video references:
+Cloudglue accepts several types of video references:
 
 - **HTTP URLs** — accepted by most API endpoints that operate on a video: `https://example.com/video.mp4`
-- **CloudGlue URIs** — assigned to uploaded files: `cloudglue://files/<file_id>`. You'll see these in API responses.
+- **Cloudglue URIs** — assigned to uploaded files: `cloudglue://files/<file_id>`. You'll see these in API responses.
 - **Data connector URIs** — provider-specific schemas for connected sources:
   - S3: `s3://<bucket>/<key>`
   - Google Drive: `gdrive://<file_id>`

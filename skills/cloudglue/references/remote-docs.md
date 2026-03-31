@@ -8,7 +8,7 @@ Use remote documentation when embedded docs lack detail, you need conceptual dee
 https://docs.cloudglue.dev/llms.txt
 ```
 
-This provides an agent-optimized overview of CloudGlue's capabilities, documentation structure, and key links.
+This provides an agent-optimized overview of Cloudglue's capabilities, documentation structure, and key links.
 
 ## Documentation Site Structure
 

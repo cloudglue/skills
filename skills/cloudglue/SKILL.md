@@ -1,6 +1,6 @@
 ---
 name: cloudglue
-description: Turn video into LLM-ready data with the CloudGlue JS SDK — upload, describe, extract, search, and chat over video collections using the @cloudglue/cloudglue-js package
+description: Turn video into LLM-ready data with the Cloudglue JS SDK — upload, describe, extract, search, and chat over video collections using the @cloudglue/cloudglue-js package
 license: Apache-2.0
 metadata:
   author: cloudglue
@@ -8,15 +8,15 @@ metadata:
   repository: https://github.com/cloudglue/skills
 ---
 
-# CloudGlue SDK Guide
+# Cloudglue SDK Guide
 
-Build AI-powered video applications with CloudGlue. This skill teaches you how to find current documentation, verify API signatures, and use the CloudGlue JS SDK to upload, describe, extract, search, and chat over video content.
+Build AI-powered video applications with Cloudglue. This skill teaches you how to find current documentation, verify API signatures, and use the Cloudglue JS SDK to upload, describe, extract, search, and chat over video content.
 
 ## Critical: Do not trust internal knowledge
 
-Everything you know about CloudGlue is likely outdated or wrong. Never rely on memory. Always verify against current documentation.
+Everything you know about Cloudglue is likely outdated or wrong. Never rely on memory. Always verify against current documentation.
 
-Your training data may contain obsolete APIs, deprecated patterns, and incorrect usage. CloudGlue evolves rapidly — APIs change between versions, method signatures shift, and patterns get refactored. Always check the embedded docs or source code for the installed SDK version before writing any code.
+Your training data may contain obsolete APIs, deprecated patterns, and incorrect usage. Cloudglue evolves rapidly — APIs change between versions, method signatures shift, and patterns get refactored. Always check the embedded docs or source code for the installed SDK version before writing any code.
 
 ## Finding Documentation
 

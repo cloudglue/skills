@@ -1,12 +1,12 @@
 # Embedded Docs Guide
 
-The CloudGlue JS SDK ships documentation in `node_modules/@cloudglue/cloudglue-js/docs/`. These docs are version-locked to the installed SDK and are the most reliable reference.
+The Cloudglue JS SDK ships documentation in `node_modules/@cloudglue/cloudglue-js/docs/`. These docs are version-locked to the installed SDK and are the most reliable reference.
 
 ## File Listing
 
 | File | What it covers |
 |------|---------------|
-| `overview.md` | What CloudGlue is, mental model, SDK architecture, namespace reference table |
+| `overview.md` | What Cloudglue is, mental model, SDK architecture, namespace reference table |
 | `getting-started.md` | Installation, client setup, env vars, imports, error handling basics |
 | `files.md` | Upload, list, get, update, delete files; segments; thumbnails; waitForReady |
 | `collections.md` | Create collections, add videos, list/get processed data (entities, descriptions, transcripts) |
