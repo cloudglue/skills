@@ -246,7 +246,7 @@ CloudGlue accepts several types of video references:
 - **CloudGlue URIs** — assigned to uploaded files: `cloudglue://files/<file_id>`. You'll see these in API responses.
 - **Data connector URIs** — provider-specific schemas for connected sources:
   - S3: `s3://<bucket>/<key>`
-  - Google Drive: `googledrive://<file_id>`
+  - Google Drive: `gdrive://<file_id>`
   - Dropbox: `dropbox://<path>`
   - Zoom: `zoom://<meeting_id>`
   - YouTube: `youtube://<video_id>`
