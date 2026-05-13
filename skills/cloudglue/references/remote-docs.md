@@ -35,8 +35,8 @@ This provides an agent-optimized overview of Cloudglue's capabilities, documenta
 - `https://docs.cloudglue.dev/deep-dives/responses-api` — Responses API guide
 
 ### Connect Your Data
-- `https://docs.cloudglue.dev/connect-your-data/overview` — Data connector overview
-- Individual connector docs: S3, Dropbox, Google Drive, GCS, Zoom, Gong, Recall
+- `https://docs.cloudglue.dev/data-connectors/overview` — Data connector and other sources overview
+- Individual connector and source docs: S3, Dropbox, Google Drive, GCS, Zoom, Gong, Recall, Grain, Loom, TikTok, YouTube
 
 ### API Reference
 - `https://docs.cloudglue.dev/api-reference/introduction` — API reference overview

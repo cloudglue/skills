@@ -249,8 +249,14 @@ Cloudglue accepts several types of video references:
   - Google Drive: `gdrive://<file_id>`
   - Dropbox: `dropbox://<path>`
   - Zoom: `zoom://<meeting_id>`
-  - YouTube: `youtube://<video_id>`
   - GCS: `gs://<bucket>/<key>`
+  - Gong: `gong://call/<call_id>`
+  - Recall: `recall://recording/<recording_id>`
+  - Grain: `grain://recording/<recording_id>`
+- **Public platform URLs** — (HTTPS; no separate `scheme://` URI like connector sources)
+  - **YouTube** — pass a public watch URL (for example `https://www.youtube.com/watch?v=<video_id>` or `https://youtu.be/<video_id>`). Processing is audio-oriented only (speech and summary): visual/scene modalities are not supported for YouTube. For full multimodal describe, use a direct file or another connector instead. See [YouTube Limitations](common-errors.md#youtube-limitations).
+  - **TikTok** — pass a public video URL (for example `https://www.tiktok.com/@<user>/video/<video_id>`). These are processed with full multimodal analysis (audio, visuals, and text).
+  - **Loom** — pass a public share URL (for example `https://www.loom.com/share/<id>`). Full multimodal analysis applies; only videos whose general access is public work—workspace-only or restricted shares fail.
 
 Most APIs return `file_id` and `uri` in their responses — use those values directly when referencing files in subsequent calls. For example:
 
