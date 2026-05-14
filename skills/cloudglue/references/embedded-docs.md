@@ -18,6 +18,7 @@ The Cloudglue JS SDK ships documentation in `node_modules/@cloudglue/cloudglue-j
 | `deep-search.md` | Agentic retrieval — streaming, knowledge bases, background jobs |
 | `data-connectors.md` | Browse files in S3, Dropbox, Google Drive, Zoom, etc. |
 | `advanced.md` | Face detection, face match, segmentations, webhooks, tags, shareable |
+| `other-sources.md` | Use public video URLs, or TikTok, YouTube, Loom URLs |
 | `types.md` | Key TypeScript types, interfaces, enums |
 | `errors.md` | CloudglueError, common HTTP errors, polling timeouts, streaming issues |
 
